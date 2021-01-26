@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+</head>
+<body>
+    <div class="main-container">
+        <div class="form-container">
+            <h1 class="form-container_title">Login</h1>
+            <form onsubmit="sendForm(event, this)" action="#" method="POST">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" placeholder="Enter your email">
+
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password">
+
+                <button type="submit">Log In</button>
+            </form>
+        </div>
+
+        <footer>
+            <div class="register-container">
+                <span class="register-container_signup">
+                    <a href="#">Click hear to Sign Up</a>
+                </span>
+            </div>
+        </footer>
+    </div>
+
+
+    <script src="validation.js"></script>
+    <script src="api.js"></script>
+
+</body>
+</html>
