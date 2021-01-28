@@ -20,6 +20,26 @@
             </form>
         </div>
 
+        <div class="creat-user_container">
+            <form onsubmit='sendNewUserForm(event,this)' action="" method="POST">
+                <h2>Create a new user</h2>
+
+                <!-- <label for="username">Username</label>
+                <input type="username" name="username" id="username" placeholder="Enter your username"> -->
+
+                <label for="newEmail">Email</label>
+                <input type="email" name="newEmail" id="newEmail" placeholder="Enter your email">
+
+                <label for="newPassword">Password</label>
+                <input type="password" name="newPassword" id="newPassword">
+
+                <label for="confirmPassword">Confirm your password</label>
+                <input type="password" name="confirmPassword" id="confirmPassword">
+
+                <button type="submit">Create</button>
+            </form>
+        </div>
+
         <footer>
             <div class="register-container">
                 <span class="register-container_signup">
