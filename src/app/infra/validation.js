@@ -1,11 +1,16 @@
 function sendForm(event, form) {
     event.preventDefault()
-    requestApi(form, unauthorizedLogin) 
+    requestLoginApi(form, loginAuth) 
+    resetForm(form)
 }
 
-function unauthorizedLogin(bodyRequestResponse, statusCode) {
-    
+function sendNewUserForm(event,form) {
+    event.preventDefault()
+    requestNewUser(form, newUserAuth)
+    resetForm(form)
+}
 
+function loginAuth(bodyRequestResponse, statusCode) {
     if(statusCode === 401) {
         alert(bodyRequestResponse)
     }
@@ -13,6 +18,18 @@ function unauthorizedLogin(bodyRequestResponse, statusCode) {
     if(statusCode === 200) {
         alert(bodyRequestResponse)
     }
+}
 
-    
+function newUserAuth(bodyRequestResponse, statusCode) {
+    if(statusCode === 401) {
+        alert(bodyRequestResponse)
+    }
+
+    if(statusCode === 200) {
+        alert(bodyRequestResponse)
+    }
+}
+
+function resetForm(form) {
+    form.reset()
 }
