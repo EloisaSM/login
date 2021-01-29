@@ -23,10 +23,12 @@ function loginAuth(bodyRequestResponse, statusCode) {
 function newUserAuth(bodyRequestResponse, statusCode) {
     if(statusCode === 401) {
         alert(bodyRequestResponse)
+        
     }
 
     if(statusCode === 200) {
         alert(bodyRequestResponse)
+        hideRegisterContainer()
     }
 }
 

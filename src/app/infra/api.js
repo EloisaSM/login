@@ -13,7 +13,6 @@ function requestLoginApi(form,cb) {
     
     const formData = new FormData(form)
     const convertFormData = new URLSearchParams(formData).toString()
-    console.log(convertFormData)
     xhr.send(convertFormData) 
 }
 
