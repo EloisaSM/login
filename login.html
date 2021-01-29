@@ -3,55 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>login</title>
 </head>
 <body>
-    <div class="main-container">
-        <div class="form-container">
-            <h1 class="form-container_title">Login</h1>
+    <main class="container">
+        <div class="login-container ">
+            <h2 class="login-title">Login</h2>
+
             <form onsubmit="sendForm(event, this)" action="#" method="POST">
-                <label for="email">Email</label>
-                <input type="email" name="email" id="email" placeholder="Enter your email">
 
-                <label for="password">Password</label>
-                <input type="password" name="password" id="password">
-
-                <button type="submit">Log In</button>
+                <div class="input-field">
+                    <input type="email" autocomplete="off" name="email" id="email" placeholder="Enter your email">
+                    <div class="underline"></div>
+                </div>
+                <div class="input-field">
+                    <input type="password" name="password" id="password" placeholder="Enter your password">
+                    <div class="underline"></div>
+                </div>
+                <input type="submit" value="Continue">
             </form>
-        </div>
-
-        <div class="creat-user_container">
-            <form onsubmit='sendNewUserForm(event,this)' action="" method="POST">
-                <h2>Create a new user</h2>
-
-                <!-- <label for="username">Username</label>
-                <input type="username" name="username" id="username" placeholder="Enter your username"> -->
-
-                <label for="newEmail">Email</label>
-                <input type="email" name="newEmail" id="newEmail" placeholder="Enter your email">
-
-                <label for="newPassword">Password</label>
-                <input type="password" name="newPassword" id="newPassword">
-
-                <label for="confirmPassword">Confirm your password</label>
-                <input type="password" name="confirmPassword" id="confirmPassword">
-
-                <button type="submit">Create</button>
-            </form>
-        </div>
-
-        <footer>
-            <div class="register-container">
-                <span class="register-container_signup">
-                    <a href="#">Click hear to Sign Up</a>
-                </span>
+            <div class="register-btn">
+                <a onclick='showRegisterContainer()' href="#"  >Click hear to Sign Up</a>
             </div>
-        </footer>
-    </div>
+        </div>
+
+        <div class="register-container hide">
+            <h2>Create a new user</h2>
+            <form onsubmit='sendNewUserForm(event,this)' action="" method="POST">
+                <div class="input-field">
+                    <input type="email" autocomplete="off" name="newEmail" id="newEmail" placeholder="Enter your email">
+                    <div class="underline"></div>
+                </div>
+                <div class="input-field">
+                    <input type="password" name="newPassword" id="newPassword" placeholder="Password">
+                    <div class="underline"></div>
+                </div>
+                <div class="input-field">
+                    <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm your password">
+                    <div class="underline"></div>
+                </div>
+                <input type="submit" value="Create">
+                
+            </form>
+        </div>
+
+    </main>
 
 
     <script src="./src/app/infra/validation.js"></script>
     <script src="./src/app/infra/api.js"></script>
+    <script src="./src/app/infra/pop-up.js"></script>
 
 </body>
 </html>
