@@ -57,18 +57,20 @@ module.exports = (app) => {
             if(error) {
                 return resp.status(500).send('Ocorreu um erro interno, tente novamente mais tarde.');
             }
-            
-            if(results.length === 0){
-                connection.query('INSERT INTO acounts (email, senha) VALUES (?,?)', [email, password], function (error, results, fields){
-                    if(error) {
-                        console.log(error)
-                        return resp.status(500).send('Ocorreu um erro interno, tente novamente mais tarde.');
-                    }
-        
-                    return resp.status(200).send('usuario criado');
-                });
+
+            if(results.length){
+                return resp.status(401).send('usuario ja cadastrado');
             }
-            return resp.status(401).send('usuario ja cadastrado');
+    
+            connection.query('INSERT INTO acounts (email, senha) VALUES (?,?)', [email, password], function (error, results, fields){
+                if(error) {
+                    console.log(error)
+                    return resp.status(500).send('Ocorreu um erro interno, tente novamente mais tarde.');
+                }
+    
+                return resp.status(200).send('usuario criado');
+            });
+
         });
 
     })
