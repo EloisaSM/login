@@ -10,19 +10,25 @@ function sendNewUserForm(event,form) {
     resetForm(form)
 }
 
+const setErrorMessage = (errorMessage) => {
+    const containerMessage = document.querySelector('.messages-container')
+    containerMessage.innerHTML = errorMessage
+    console.log(errorMessage)
+}
+
 function loginAuth(bodyRequestResponse, statusCode) {
     if(statusCode === 401) {
-        alert(bodyRequestResponse)
+        setErrorMessage(bodyRequestResponse)
     }
 
     if(statusCode === 200) {
-        alert(bodyRequestResponse)
+        
     }
 }
 
 function newUserAuth(bodyRequestResponse, statusCode) {
     if(statusCode === 401) {
-        alert(bodyRequestResponse)
+        setErrorMessage(bodyRequestResponse)
         
     }
 
