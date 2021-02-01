@@ -8,10 +8,11 @@
 </head>
 <body>
     <main class="container">
+
         <div class="login-container ">
             <h2 class="login-title">Login</h2>
 
-            <form onsubmit="sendForm(event, this)" action="#" method="POST">
+            <form onsubmit="sendForm(event, this, '/auth')" action="#" method="POST">
 
                 <div class="input-field">
                     <input type="email" autocomplete="off" name="email" id="email" placeholder="Enter your email">
@@ -23,14 +24,15 @@
                 </div>
                 <input type="submit" value="Continue">
             </form>
+
             <div class="register-btn">
-                <a onclick='showRegisterContainer()' href="#"  >Click hear to Sign Up</a>
+                <a onclick='showRegisterContainer()' href="#">Click hear to Sign Up</a>
             </div>
         </div>
 
         <div class="register-container hide">
             <h2>Create a new user</h2>
-            <form onsubmit='sendNewUserForm(event,this)' action="" method="POST">
+            <form onsubmit="sendForm(event, this, '/users')" action="" method="POST">
                 <div class="input-field">
                     <input type="email" autocomplete="off" name="newEmail" id="newEmail" placeholder="Enter your email">
                     <div class="underline"></div>
@@ -47,6 +49,8 @@
                 
             </form>
         </div>
+
+        <div class="messages-container"></div>
 
     </main>
 
