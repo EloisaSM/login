@@ -1,43 +1,26 @@
-function sendForm(event, form) {
+function sendForm(event, form, path) {
     event.preventDefault()
-    requestLoginApi(form, loginAuth) 
-    resetForm(form)
+    requestApi('/auth', form, auth) 
+    reset(form)
 }
 
-function sendNewUserForm(event,form) {
-    event.preventDefault()
-    requestNewUser(form, newUserAuth)
-    resetForm(form)
+function reset(form) {
+    form.reset()
 }
 
 const setErrorMessage = (errorMessage) => {
     const containerMessage = document.querySelector('.messages-container')
-    containerMessage.innerHTML = errorMessage
-    console.log(errorMessage)
+    containerMessage.innerText = errorMessage
 }
 
-function loginAuth(bodyRequestResponse, statusCode) {
+function auth(bodyRequestResponse, statusCode) {
     if(statusCode === 401) {
         setErrorMessage(bodyRequestResponse)
     }
 
     if(statusCode === 200) {
-        
+        alert('Sucesso')
     }
 }
 
-function newUserAuth(bodyRequestResponse, statusCode) {
-    if(statusCode === 401) {
-        setErrorMessage(bodyRequestResponse)
-        
-    }
 
-    if(statusCode === 200) {
-        alert(bodyRequestResponse)
-        hideRegisterContainer()
-    }
-}
-
-function resetForm(form) {
-    form.reset()
-}

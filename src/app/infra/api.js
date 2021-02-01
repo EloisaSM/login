@@ -1,7 +1,9 @@
-function requestLoginApi(form,cb) {
+const BASE_URL = 'http://localhost:3000'
+
+function requestApi(path, form, cb) {
     let xhr = new XMLHttpRequest()
 
-    xhr.open('POST', 'http://localhost:3000/auth', true)
+    xhr.open('POST', `${BASE_URL}${path}`, true)
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
 
     xhr.addEventListener('load', function() {
@@ -16,24 +18,6 @@ function requestLoginApi(form,cb) {
     xhr.send(convertFormData) 
 }
 
-function requestNewUser(form, cb) {
-    let xhr = new XMLHttpRequest()
 
-    xhr.open('POST', 'http://localhost:3000/users', true)
-    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
-
-    xhr.addEventListener('load', function() {
-        const bodyResponse = xhr.responseText;
-        const statusCode = this.status;
-
-        console.log(bodyResponse, statusCode)
-
-        cb(bodyResponse, statusCode);
-    });
-
-    const formData = new FormData(form)
-    const convertFormData = new URLSearchParams(formData).toString()
-    xhr.send(convertFormData) 
-}
 
 
